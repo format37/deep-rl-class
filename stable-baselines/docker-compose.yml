@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  server_1:
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            device_ids: ['1']
+            capabilities: [gpu]
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - ./data:/app/data
+    build: server
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+    network_mode: "host"
+    environment:
+      - TZ=Europe/Moscow
