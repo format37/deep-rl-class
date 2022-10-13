@@ -2,6 +2,8 @@ version: '3.8'
 services:
   server_1:
     deploy:
+      mode: replicated
+      replicas: 4
       resources:
         reservations:
           devices:

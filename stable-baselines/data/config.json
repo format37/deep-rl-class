@@ -1,0 +1,4 @@
+{
+    "env_name": "CarRacing-v1",
+    "model_type": "ppo"
+}
